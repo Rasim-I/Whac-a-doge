@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="source/js/logic.js"></script>
+</head>
+<body>
+<div class="wrapper">
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #ffd8a6 ;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Bonk</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Dogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Weapon</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Background</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+<div class="main">
+
+    <div id="informationBoard">
+        <h3 class="scoreLabel">Your score:</h3>
+        <h3 class="scoreLabel" id="score">0</h3>
+
+        <h3 class="scoreLabel">Time left: </h3>
+        <h3 class="scoreLabel" id="timeLeft">15</h3>
+    </div>
+
+
+    <div id="field-container">
+
+
+        <div id="field" class="fields shadow">
+
+            <div class="squares">
+                <img id="doge1" onclick="onClickDoge('doge1')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button1"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge2" onclick="onClickDoge('doge2')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button2"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge3" onclick="onClickDoge('doge3')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button3"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge4" onclick="onClickDoge('doge4')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button4"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge5" onclick="onClickDoge('doge5')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button5"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge6" onclick="onClickDoge('doge6')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button6"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge7" onclick="onClickDoge('doge7')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button7"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge8" onclick="onClickDoge('doge8')" class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button8"></button>
+            </div>
+
+            <div class="squares">
+                <img id="doge9" onclick="onClickDoge('doge9') "class="doge" src="img/doge.png">
+                <button class="btn btn-light" id="button9"></button>
+            </div>
+
+
+
+        </div>
+
+        <div id="controls">
+            <button id="takeWeapon" type="button" class="btn btn-primary" onclick="takeWeapon()">Take weapon</button>
+            <button id="start" type="button" class="btn btn-success" onclick="gameStart()">Start</button>
+            <button id="stop" type="button" class="btn btn-danger" onclick="gameStop()">Stop</button>
+            <button id="putDownWeapon" type="button" class="btn btn-primary" onclick="putDownWeapon()">Put down weapon</button>
+        </div>
+
+
+    </div>
+
+
+    <p class="fw-light text-muted gameRules">
+        How to play?
+    </p>
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/dogeforslide.png" class="d-block w-100" alt="two dogs">
+        </div>
+        <div class="carousel-item">
+            <img src="img/bonk-mem.png" class="d-block w-100" alt="one dog">
+        </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+</div>
+
+
+<footer class="footer">
+    <img id="cloud_image" src="img/cloud.png">
+
+    <div id="rights"><label id ="year"></label> &copy;
+        <script>
+            let current_year = new Date();
+            document.getElementById("year").innerHTML = current_year.getFullYear().toString();
+        </script>
+    </div>
+
+    <a id="contact_mail" href="mailto:test@example.com">Contact us</a>
+</footer>
+
+
+</div>
+<script src="js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

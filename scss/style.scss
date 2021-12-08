@@ -1,0 +1,56 @@
+$carouselWidth: 30%;
+$carouselPadding-bottom: 100px;
+$informationBoardPadding-L: 30px;
+$informationBoardPadding-T: 10px;
+
+@mixin font($fontSize){
+  font-size: $fontSize;
+}
+
+@mixin informationBoardPadding(){
+  padding-left: $informationBoardPadding-L;
+  padding-top: $informationBoardPadding-T;
+}
+
+html{
+  height: 100%;
+}
+body{
+  background: #fff5f0;
+  height: 100%;
+
+  .wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .main{
+      flex: 1 1 auto;
+      position: relative;
+    }
+  }
+
+  .gameRules{
+    @include font(70px);
+    display: block;
+    padding: 60px 0px 40px 760px;
+
+  }
+
+  .carousel {
+    width: $carouselWidth;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: $carouselPadding-bottom;
+  }
+
+}
+
+#informationBoard{
+  @include informationBoardPadding();
+  position: absolute;
+}
+
+@import "field-container";
+@import "footer.css";
+

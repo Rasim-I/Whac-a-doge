@@ -1,0 +1,84 @@
+$screenWidth: 1920px;
+$valueToCenterContainer: 1350px;
+$fieldWidth: 796px;
+$fieldHeight: 796px;
+$fieldPadding: 20px;
+$fieldBorderRad: 20px;
+$squareWidth: 250px;
+$squareHeight: 250px;
+$btn-lightWidth: $squareWidth - 50px;
+$btn-lightHeight: 85px;
+$btnImage: url("../img/hole.png");
+$controlsLeft: 205px;
+$controlsPadding: 10px;
+
+@mixin btn-lightLeft($a){
+  left: $squareWidth - ($btn-lightWidth + $fieldPadding + $a);
+}
+
+@mixin dogeSizePosition(){
+  width: 150px;
+  left: 85px;
+}
+
+#field-container{
+  background: whitesmoke;
+  display: inline-block;
+  position: relative;
+  left: $screenWidth - $valueToCenterContainer ;
+  top: 100px;
+  margin-bottom: 300px;
+  //border: #0c4128 solid 1px;
+
+  #field{
+    background: #ffd8a6;
+    border-radius: $fieldBorderRad;
+    padding: $fieldPadding;
+    width: $fieldWidth;
+    height: $fieldHeight;
+    display: flex;
+    flex-wrap: wrap;
+
+    .squares{
+      position: relative;
+      width: $squareWidth;
+      height: $squareHeight;
+    }
+
+    .btn-light{
+      width: $btn-lightWidth;
+      height: $btn-lightHeight;
+      background-image: $btnImage;
+      background-size: contain;
+      background-repeat: no-repeat;
+      border-radius: 100px / 50px;
+      position: absolute;
+      @include btn-lightLeft(5px); //(square width-(btn + padding + 5))
+      bottom: 5px;
+
+      &:hover{
+        cursor: default;
+      }
+    }
+
+
+    .doge{
+      @include dogeSizePosition();
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s;
+      z-index: 1;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
+  #controls{
+    position: relative;
+    padding: $controlsPadding;
+    left: $controlsLeft;
+  }
+
+}
